@@ -48,21 +48,17 @@ pipeline {
                 dir("${env.WORKSPACE}/Ch05/05_04-challenge-create-artifacts-and-reports"){
                     echo "Creating the JAR file..."
                     // Uncomment the following line after Maven is configured as a global tool
-                    sh 'mvn package -DskipTests'
-                    sh 'ls'
-                }
+                    sh 'mvn package -DskipTests'                }
             }
         }
     }
     post {
         always {
             echo "Collecting jUnit test results..."
-            // junit allowEmptyResults: true, testResults: '**/pytest_junit.xml'
-
-            // junit allowEmptyResults: true, testResults: '**/pylint_junit.xml'
+            junit allowEmptyResults: true, testResults: '**/TEST-com.learningjenkins.AppTest.xml'
             
             echo "Archiving the JAR file..."
-            // Add artifact archiving here...
+            archiveArtifacts artifacts: 'hello-*', followSymlinks: false
         }
     }
 }
