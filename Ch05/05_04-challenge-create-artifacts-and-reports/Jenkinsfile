@@ -18,7 +18,7 @@ pipeline {
                     echo "Cleaning the workspace..."
                     // Uncomment the following line after Maven is configured as a global tool
                     script {
-                        def mavenHome = tool 'maven-3.8.4'
+                        def mavenHome = tool 'Maven-3.8.4'
                         withEnv(["DIAG_MAVEN_HOME=${mavenHome}"]) {
                             sh '''
                                 printf 'Maven home: %s\\nPATH: %s\\n' "$DIAG_MAVEN_HOME" "$PATH"
