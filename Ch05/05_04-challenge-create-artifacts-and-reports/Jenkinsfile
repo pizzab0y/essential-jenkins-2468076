@@ -15,10 +15,10 @@ pipeline {
         stage('Clean') {
             steps {
                 dir("${env.WORKSPACE}/Ch05/05_04-challenge-create-artifacts-and-reports"){
-                    sh 'mvn --version'
                     echo "Cleaning the workspace..."
                     // Uncomment the following line after Maven is configured as a global tool
                     sh 'mvn clean'
+                    sh 'mvn --version'
                 }
             }
         }
