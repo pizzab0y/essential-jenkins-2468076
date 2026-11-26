@@ -58,7 +58,7 @@ pipeline {
             junit allowEmptyResults: true, testResults: '**/TEST-com.learningjenkins.AppTest.xml'
             
             echo "Archiving the JAR file..."
-            archiveArtifacts artifacts: 'hello-*', followSymlinks: false
+            archiveArtifacts artifacts: '**/hello-*', followSymlinks: false
         }
     }
 }
